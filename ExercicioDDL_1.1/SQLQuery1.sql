@@ -1,0 +1,22 @@
+CREATE DATABASE ExercicioPessoa;
+
+USE ExercicioPessoa;
+
+--NOT NULL= campo não pode ser nulo.
+CREATE TABLE Pessoa
+( IdPessoa INT PRIMARY KEY IDENTITY,
+Nome VARCHAR (50) NOT NULL,
+CNH VARCHAR(11) NOT NULL
+)
+
+CREATE TABLE Email
+( IdEmail INT PRIMARY KEY IDENTITY,
+IdPessoa INT FOREIGN KEY REFERENCES Pessoa(IdPessoa),
+Endereço VARCHAR (100) NOT NULL
+)
+
+CREATE TABLE Telefone
+( IdTelefone INT PRIMARY KEY IDENTITY,
+IdPessoa INT FOREIGN KEY REFERENCES Pessoa(IdPessoa),
+Numero VARCHAR (20) NOT NULL
+)
