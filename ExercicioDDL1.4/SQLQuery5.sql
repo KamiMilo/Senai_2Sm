@@ -19,13 +19,15 @@ IdArtista INT FOREIGN KEY REFERENCES Artistas(IdArtista),
 Titulo VARCHAR (20) NOT NULL,
 DataLancamento DATE NOT NULL,
 QDeMinutos FLOAT NOT NULL,
-Ativo VARCHAR NOT NULL 
+Ativo Bit NOT NULL 
 )
 
 CREATE TABLE Usuarios(
 IdUsuario INT PRIMARY KEY IDENTITY,
-Nome VARCHAR (20),
-Email VARCHAR (30),
+Nome VARCHAR (20) NOT NULL,
+Email VARCHAR (30)NOT NULL,
+Senha VARCHAR (10)NOT NULL,
+Permissão Bit
 
 )
 
