@@ -3,6 +3,7 @@ USE Empresa_Musical;
 INSERT INTO Artistas(Nome)
 VALUES ('Gorillaz')
 
+
 INSERT INTO Estilos(Nome)
 VALUES ('R&B')
 

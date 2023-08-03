@@ -32,13 +32,14 @@ Pessoa
 --LEFT JOIN = dá preferencia para a tabela da esquerda (Pessoa),e traz todos os cadrastros dessa tabela
 --mesmo sem os outros dados correspondentes(Email e Telefone).
 
---RIGTH JOIN = Dá preferencia para a tabela da direita (Telefone)
+--RIGTH JOIN = Dá preferencia para a tabela da direita.
 
- LEFT JOIN 
+  LEFT JOIN 
 Email ON Pessoa.IdPessoa = Email.IdPessoa
-
  LEFT JOIN 
 Telefone ON Pessoa.IdPessoa = Telefone.IdPessoa
+
+
 
 WHERE Telefone.Numero IS NULL
 

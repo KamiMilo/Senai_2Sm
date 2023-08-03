@@ -39,7 +39,9 @@ Placa VARCHAR (10)
 CREATE TABLE Aluguel (
 IdAluguel INT PRIMARY KEY IDENTITY,
 IdVeiculo INT FOREIGN KEY REFERENCES Veiculo(IdVeiculo),
-IdCliente INT FOREIGN KEY REFERENCES Cliente(IdCliente)
+IdCliente INT FOREIGN KEY REFERENCES Cliente(IdCliente),
+Retirada DATE,
+Devolucao DATE,
 )
 
 
