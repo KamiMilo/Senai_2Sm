@@ -42,21 +42,25 @@ VALUES
 
 INSERT INTO Aluguel(IdVeiculo,IdCliente,Retirada,Devolucao)
 VALUES
-(5,1,'22/05/2023','25/05/2023'),
-(6,2,'05/07/2023','13/07/2023'),
-(4,1,'12/05/2023','14/05/2023')
+(2,1,'22/05/2023','25/05/2023'),
+(1,2,'05/07/2023','13/07/2023'),
+(3,1,'12/05/2023','14/05/2023')
 
 
-DELETE FROM Cliente WHERE IdCliente = 4
-
+--lISTA DE TRIBUTOS
 SELECT 
-Aluguel.Retirada,Aluguel.Devolucao ,Cliente.Nome,Modelo.Nome
+Aluguel.Retirada,Aluguel.Devolucao ,Cliente.Nome,Veiculo.IdVeiculo
 
+--TABELA1
 FROM
 Aluguel
 
-JOIN
-Cliente ON Aluguel.IdAluguel
+--TABELA2 ON  TABELA1.COLUNA = TABELA2.COLUNA
+ right JOIN
+Cliente ON Aluguel.IdAluguel = cliente.IdCliente
+
+RIGHT JOIN
+Veiculo ON Aluguel.IdAluguel = Veiculo.IdModelo
 
 
 
@@ -67,7 +71,7 @@ Cliente ON Aluguel.IdAluguel
 --SELECT * FROM Empresa;
 --SELECT * FROM Marca;
 --SELECT * FROM Modelo;
---SELECT * FROM Veiculo;
+SELECT * FROM Veiculo;
 SELECT * FROM Aluguel;
 
 --DQL
