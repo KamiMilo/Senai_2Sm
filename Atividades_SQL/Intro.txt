@@ -1,5 +1,5 @@
 Pasta contendo Atividades simples de banco de Dados,Ultilizando o SQLServer,onde foi abordado sobre os Comando de DDL,DML E DQL.
 
 
-Os enunciados da situação problema de cada exercício podem ser encontrados através deste repositório: 
+Os enunciados da situação problema de cada exercício estarão na pasta DDL De cada exercicio ou podem ser encontrados através deste repositório: 
 https://github.com/senai-desenvolvimento/2023-1S-2D/tree/main/sprint-1-bd/exercicios
