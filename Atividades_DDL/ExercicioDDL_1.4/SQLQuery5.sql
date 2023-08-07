@@ -1,7 +1,7 @@
 
-CREATE DATABASE Empresa_Musical
+CREATE DATABASE Exercicio1_4
 
-USE Empresa_Musical
+USE Exercicio1_4
 
 CREATE TABLE Artistas(
 IdArtista INT PRIMARY KEY IDENTITY NOT NULL,
@@ -16,10 +16,11 @@ Nome VARCHAR (20) NOT NULL
 CREATE TABLE Albuns(
 IdAlbum INT PRIMARY KEY IDENTITY,
 IdArtista INT FOREIGN KEY REFERENCES Artistas(IdArtista),
+IdEstilo INT FOREIGN KEY REFERENCES Estilos(IdEstilo),
 Titulo VARCHAR (20) NOT NULL,
 DataLancamento DATE NOT NULL,
 QDeMinutos FLOAT NOT NULL,
-Ativo Bit NOT NULL 
+Ativo BIT  
 )
 
 CREATE TABLE Usuarios(
@@ -27,9 +28,10 @@ IdUsuario INT PRIMARY KEY IDENTITY,
 Nome VARCHAR (20) NOT NULL,
 Email VARCHAR (30)NOT NULL,
 Senha VARCHAR (10)NOT NULL,
-Permissão Bit
+Permissao Bit
 
 )
 
 
 
+DROP TABLE Usuarios
