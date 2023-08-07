@@ -1,0 +1,62 @@
+--DDL
+
+CREATE DATABASE Exercicio1_3;
+
+USE Exercicio1_3
+
+
+
+CREATE TABLE Endereco(
+IdEndereco INT PRIMARY KEY IDENTITY,
+Rua VARCHAR(60),
+Bairro VARCHAR (50),
+CEP VARCHAR (13)
+)
+
+CREATE TABLE Clinica(
+IdClinica INT PRIMARY KEY IDENTITY,
+IdEndereco INT FOREIGN KEY REFERENCES Endereco(IdEndereco),
+Nome VARCHAR (50),
+)
+
+CREATE TABLE Dono(
+IdDono INT PRIMARY KEY IDENTITY,
+Nome VARCHAR (50),
+Numero Varchar (20)
+)
+
+CREATE TABLE Raca(
+IDRaca INT PRIMARY KEY IDENTITY,
+Nome VARCHAR (20)
+)
+
+CREATE TABLE Tipo(
+IDTipo INT PRIMARY KEY IDENTITY,
+Nome VARCHAR (20)
+)
+
+CREATE TABLE Veterinario(
+IdVeterinario INT PRIMARY KEY IDENTITY,
+IdClinica INT FOREIGN KEY REFERENCES Clinica(IdClinica),
+Nome VARCHAR(50)
+)
+
+CREATE TABLE Pet(
+IdPet INT PRIMARY KEY IDENTITY,
+IdDono INT FOREIGN KEY REFERENCES Dono(IdDono),
+Nome VARCHAR (50),
+DataDeNascimento Date,
+IdTipo INT FOREIGN KEY REFERENCES Tipo(IdTipo),
+IdRaca INT FOREIGN KEY REFERENCES Raca(IdRaca),
+)
+
+CREATE TABLE Atendimento (
+IdAtendimento INT PRIMARY KEY IDENTITY,
+IdPet INT FOREIGN KEY REFERENCES Pet(IdPet),
+IdVeterinario INT FOREIGN KEY REFERENCES Veterinario(IdVeterinario),
+Descricao VARCHAR(300),
+[Data] Date
+)
+
+
+drop database Exercicio1_3
