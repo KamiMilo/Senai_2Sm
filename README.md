@@ -1,2 +1,2 @@
-# Senai_S2
+# Senai_2S
 Repositorio dedicado a Atividades do 2°Semestre do Senai 
