@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\47766876825\\Desktop\\Senai_Sprint1\\API\\Projeto_Filmes\\WebApi.Filmes\\WebApi.Filmes\\WebApi.Filmes.csproj": {}
+    "C:\\Users\\47766876825\\Desktop\\Senai_2Sm\\API\\Projeto_Filmes\\WebApi.Filmes\\WebApi.Filmes\\WebApi.Filmes.csproj": {}
   },
   "projects": {
-    "C:\\Users\\47766876825\\Desktop\\Senai_Sprint1\\API\\Projeto_Filmes\\WebApi.Filmes\\WebApi.Filmes\\WebApi.Filmes.csproj": {
+    "C:\\Users\\47766876825\\Desktop\\Senai_2Sm\\API\\Projeto_Filmes\\WebApi.Filmes\\WebApi.Filmes\\WebApi.Filmes.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\47766876825\\Desktop\\Senai_Sprint1\\API\\Projeto_Filmes\\WebApi.Filmes\\WebApi.Filmes\\WebApi.Filmes.csproj",
+        "projectUniqueName": "C:\\Users\\47766876825\\Desktop\\Senai_2Sm\\API\\Projeto_Filmes\\WebApi.Filmes\\WebApi.Filmes\\WebApi.Filmes.csproj",
         "projectName": "WebApi.Filmes",
-        "projectPath": "C:\\Users\\47766876825\\Desktop\\Senai_Sprint1\\API\\Projeto_Filmes\\WebApi.Filmes\\WebApi.Filmes\\WebApi.Filmes.csproj",
+        "projectPath": "C:\\Users\\47766876825\\Desktop\\Senai_2Sm\\API\\Projeto_Filmes\\WebApi.Filmes\\WebApi.Filmes\\WebApi.Filmes.csproj",
         "packagesPath": "C:\\Users\\47766876825\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\47766876825\\Desktop\\Senai_Sprint1\\API\\Projeto_Filmes\\WebApi.Filmes\\WebApi.Filmes\\obj\\",
+        "outputPath": "C:\\Users\\47766876825\\Desktop\\Senai_2Sm\\API\\Projeto_Filmes\\WebApi.Filmes\\WebApi.Filmes\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\47766876825\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            },
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.5, )"
