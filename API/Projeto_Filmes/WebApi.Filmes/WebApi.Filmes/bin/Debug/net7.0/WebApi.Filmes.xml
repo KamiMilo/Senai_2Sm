@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebApi.Filmes</name>
+    </assembly>
+    <members>
+        <member name="P:WebApi.Filmes.Controllers.GeneroController._generoRepository">
+            <summary>
+            Objeto _generoRepository que ira receber todos os metodos definidos na interface IgeneroRepository
+            </summary>
+        </member>
+        <member name="M:WebApi.Filmes.Controllers.GeneroController.Get">
+            <summary>
+            End point para acionar o método listar todos no repósitorio.
+            </summary>
+            <returns>Resposta para o usuario (front-end)</returns>
+        </member>
+        <member name="M:WebApi.Filmes.Controllers.GeneroController.Post(WebApi.Filmes.Domains.GeneroDomain)">
+            <summary>
+            End Point para acionar o método de cadastro.
+            </summary>
+            <param name="novoGenero">objeto recebido na requisição</param>
+            <returns>status code 201(Created)</returns>
+        </member>
+        <member name="T:WebApi.Filmes.Domains.GeneroDomain">
+            <summary>
+            Classe que Representa a Entidade(Tabela) Genero
+            </summary>
+        </member>
+        <member name="T:WebApi.Filmes.Interface.IFilmeRepository">
+            <summary>
+            Interface Responsavél pelo repositorio Filme
+            Definir os métodos que serão implementados pelo FilmeRepositoy
+            </summary>
+        </member>
+        <member name="M:WebApi.Filmes.Interface.IFilmeRepository.Cadastrar(WebApi.Filmes.Domains.FilmeDomain)">
+            <summary>
+            Serve para cadastrar um novo filme
+            </summary>
+            <param name="NovoFilme"></param>
+        </member>
+        <member name="M:WebApi.Filmes.Interface.IFilmeRepository.ListarTodos">
+            <summary>
+            Serve para listar os filmes existentes no banco de dados
+            </summary>
+            <returns>lista de filme(objeto)</returns>
+        </member>
+        <member name="M:WebApi.Filmes.Interface.IFilmeRepository.AtualizarIdCorpo(WebApi.Filmes.Domains.FilmeDomain)">
+            <summary>
+             Atualiza um Objeto existente passando o seu Id Pelo corpo da requisição
+            </summary>
+            <param name="filme"></param> Objeto Atualizado(Novas Informações)
+        </member>
+        <member name="M:WebApi.Filmes.Interface.IFilmeRepository.AtualizarIdUrl(System.Int32,WebApi.Filmes.Domains.FilmeDomain)">
+            <summary>
+             Atualiza um Objeto existente passando o Url Pelo corpo da requisição
+            </summary>
+            <param name="filme"></param> Objeto Atualizado(Novas Informações)
+        </member>
+        <member name="M:WebApi.Filmes.Interface.IFilmeRepository.Deletar(System.Int32)">
+            <summary>
+            Deleta um objeto passando o seu Id
+            </summary>
+            <param name="Id"></param> Id do objeto
+        </member>
+        <member name="M:WebApi.Filmes.Interface.IFilmeRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Busca objeto através do seu id
+            </summary>
+            <param name="Id"></param>
+            <returns>objeto buscado</returns>
+        </member>
+        <member name="T:WebApi.Filmes.Interface.IGeneroRepository">
+            <summary>
+            Interface Responsavél pelo repositorio Genero
+            Definir os métodos que serão implementados pelo GeneroRepositoy
+            </summary>
+        </member>
+        <member name="M:WebApi.Filmes.Interface.IGeneroRepository.Cadastrar(WebApi.Filmes.Domains.GeneroDomain)">
+             <summary>
+            serve para cadastrar um novo Genero
+             </summary>
+             <param name="NovoGenero">Objeto do tipo Genero</param>
+        </member>
+        <member name="M:WebApi.Filmes.Interface.IGeneroRepository.ListarTodos">
+            <summary>
+            listar todos os objetos (Generos) Cadastrados
+            retornalista com os objetos.
+            </summary>
+            <returns>Retorna os Objetos Listados</returns>
+        </member>
+        <member name="M:WebApi.Filmes.Interface.IGeneroRepository.AtualizarIdCorpo(WebApi.Filmes.Domains.GeneroDomain)">
+            <summary>
+            Atualiza um Objeto existente passando o seu Id Pelo corpo da requisição
+            </summary>
+            <param name="genero"></param> Objeto Atualizado(Novas Informações)
+        </member>
+        <member name="M:WebApi.Filmes.Interface.IGeneroRepository.AtualizarIdUrl(System.Int32,WebApi.Filmes.Domains.GeneroDomain)">
+            <summary>
+            Atualiza o Objeto existente passando seu Id Pela Url
+            </summary>
+            <param name="Id">Id do Objeto</param>
+            <param name="genero"></param>
+        </member>
+        <member name="M:WebApi.Filmes.Interface.IGeneroRepository.Deletar(System.Int32)">
+            <summary>
+            Deletar um objeto
+            </summary>
+            <param name="Id"></param>
+        </member>
+        <member name="M:WebApi.Filmes.Interface.IGeneroRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Buscar objeto através do Id
+            </summary>
+            <param name="Id">Objeto do Id a ser buscado</param>
+            <returns>Objeto Buscado</returns>
+        </member>
+        <member name="F:webapi.filme.manha.Repositories.GeneroRepository.StringConexao">
+            <summary>
+            string de conexao com o banco de dados que recebe os seguintes parametros
+            Data Source : nome do servidor
+            Initial Catalog : nome do banco de dados
+            Autenticacao :
+                - Windows : integrated Security = true;
+                - SQL : User id : sa; Pwd : Senha
+            </summary>
+        </member>
+        <member name="M:webapi.filme.manha.Repositories.GeneroRepository.WebApi#Filmes#Interface#IGeneroRepository#Cadastrar(WebApi.Filmes.Domains.GeneroDomain)">
+            <summary>
+            Cadastrar um novo Gênero
+            </summary>
+            <param name="novoGenero">objeto com as informações que serão cadastradas</param>
+        </member>
+    </members>
+</doc>

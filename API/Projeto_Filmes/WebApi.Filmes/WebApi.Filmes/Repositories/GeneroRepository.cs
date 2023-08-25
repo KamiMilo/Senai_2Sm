@@ -1,4 +1,5 @@
 ﻿using System.Data.SqlClient;
+using System.Runtime.Intrinsics.Arm;
 using WebApi.Filmes.Domains;
 using WebApi.Filmes.Interface;
 
@@ -27,8 +28,30 @@ namespace webapi.filme.manha.Repositories
 
         GeneroDomain IGeneroRepository.BuscarPorId(int id)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                string queryBuscaPorId = "SELECT FROM Genero WHERE IdGenero = @IdGeneroBuscado";
+
+                //Declara o SqlCommand passando a Query que será executada e a conexão com o bd
+                using (SqlCommand cmd = new SqlCommand(queryBuscaPorId, con))
+                {
+
+                    cmd.Parameters.AddWithValue("@IdGeneroBuscado", id);
+
+                    //Abre a Conexão com o banco de todos
+                    con.Open();
+
+                    SqlDataReader rdr;
+
+
+                    //Executar a query (queryInsert)
+                    cmd.ExecuteNonQuery();
+                };
+            }
+
         }
+
+
         /// <summary>
         /// Cadastrar um novo Gênero
         /// </summary>
@@ -39,11 +62,14 @@ namespace webapi.filme.manha.Repositories
             using (SqlConnection con = new SqlConnection(StringConexao))
             {
                 //Declara a Query que será executada
-                string queryInsert = "INSERT INTO Genero (Nome) VALUES('" + novoGenero.Nome + "')";
+                string queryInsert = "INSERT INTO Genero (Nome) VALUES(@Nome)";
 
                 //Declara o SqlCommand passando a Query que será executada e a conexão com o bd
                 using (SqlCommand cmd = new SqlCommand(queryInsert,con))
                 {
+
+                    cmd.Parameters.AddWithValue("@Nome", novoGenero.Nome);
+
                     //Abre a Conexão com o banco de todos
                     con.Open();
 
@@ -56,7 +82,25 @@ namespace webapi.filme.manha.Repositories
 
         void IGeneroRepository.Deletar(int id)
         {
-            throw new NotImplementedException();
+
+            //Declara a conexão passando a string de conexão como Parâmetro
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                //Declara a Query que será executada
+                string queryDelete = "DELETE FROM Genero WHERE IdGenero = @IdGenero";
+
+                using (SqlCommand cmd = new SqlCommand(queryDelete, con))
+                {
+
+                    cmd.Parameters.AddWithValue("@IdGenero", id);
+
+                    con.Open();
+
+                    cmd.ExecuteNonQuery();
+
+                }
+
+            }
         }
 
         List<GeneroDomain> IGeneroRepository.ListarTodos()

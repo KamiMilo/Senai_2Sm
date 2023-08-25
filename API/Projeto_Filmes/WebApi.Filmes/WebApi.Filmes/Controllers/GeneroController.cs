@@ -32,7 +32,7 @@ namespace WebApi.Filmes.Controllers
             _generoRepository = new GeneroRepository();
         }
         /// <summary>
-        /// End point que aciona o metodo listar todos no repositorio.
+        /// End point para acionar o método listar todos no repósitorio.
         /// </summary>
         /// <returns>Resposta para o usuario (front-end)</returns>
         [HttpGet]
@@ -54,7 +54,7 @@ namespace WebApi.Filmes.Controllers
         }
 
         /// <summary>
-        /// End point para acionar o método de cadastro
+        /// End Point para acionar o método de cadastro.
         /// </summary>
         /// <param name="novoGenero">objeto recebido na requisição</param>
         /// <returns>status code 201(Created)</returns>
@@ -77,6 +77,39 @@ namespace WebApi.Filmes.Controllers
             {
                 //Retorna um status code 400 (Bad Request)e uma mensagem de erro
                 return BadRequest(erro.Message);
+            }
+        }
+
+        [HttpDelete("{Id}")]
+        public IActionResult Delete (int Id)
+        {
+            try
+            {
+                _generoRepository.Deletar(Id);
+
+                return StatusCode(204);
+            }
+
+            catch (Exception erro)
+            {
+                //Retorna um status code 400 (Bad Request)e uma mensagem de erro
+                return BadRequest(erro.Message);
+            }
+        }
+
+        [HttpGet("{Id}")]
+        public IActionResult Get(int Id)
+        {
+            try
+            {
+                _generoRepository.BuscarPorId(Id);
+                return Ok(Id);
+            }
+
+            //Retorna a lista com o status code Bad Request (400) e a mensagem de erro
+            catch (Exception erro)
+            {
+                return BadRequest(erro);
             }
         }
 
