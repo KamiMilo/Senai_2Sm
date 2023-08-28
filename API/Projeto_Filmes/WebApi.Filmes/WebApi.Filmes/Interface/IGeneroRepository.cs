@@ -41,7 +41,7 @@ namespace WebApi.Filmes.Interface
         void Deletar (int Id);
 
         /// <summary>
-        /// Buscar objeto através do Id
+        /// Busca o objeto através do Id
         /// </summary>
         /// <param name="Id">Objeto do Id a ser buscado</param>
         /// <returns>Objeto Buscado</returns>

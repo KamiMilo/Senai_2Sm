@@ -98,18 +98,43 @@ namespace WebApi.Filmes.Controllers
         }
 
         [HttpGet("{Id}")]
-        public IActionResult Get(int Id)
+        public IActionResult GetById (int Id)
         {
+
             try
             {
-                _generoRepository.BuscarPorId(Id);
-                return Ok(Id);
+                //guardar objeto do método dentro de outro objeto
+                GeneroDomain GeneroBuscado = _generoRepository.BuscarPorId(Id);
+
+                if(GeneroBuscado== null)
+                {
+                    return NotFound("Nenhum Gênero foi encontrado");
+                }
+
+                return Ok(GeneroBuscado);
+
             }
 
             //Retorna a lista com o status code Bad Request (400) e a mensagem de erro
             catch (Exception erro)
             {
-                return BadRequest(erro);
+                return BadRequest(erro.Message);
+            }
+        }
+
+        [HttpPatch]
+        public IActionResult Patch(GeneroDomain Genero)
+        {
+            try
+            {
+                GeneroDomain GeneroAtualizado = _generoRepository.AtualizarIdUrl(Id);
+
+                return Ok(GeneroAtualizado);
+            }
+
+            catch (Exception erro)
+            {
+                return BadRequest(erro.Message);
             }
         }
 

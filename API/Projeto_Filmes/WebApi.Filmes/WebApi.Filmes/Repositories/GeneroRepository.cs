@@ -16,37 +16,92 @@ namespace webapi.filme.manha.Repositories
         ///     - SQL : User id : sa; Pwd : Senha
         /// </summary>
         public string StringConexao = "Data Source = NOTE07-S14; Initial Catalog = Filmes; User Id = sa; Pwd = Senai@134";
+
         void IGeneroRepository.AtualizarIdCorpo(GeneroDomain Genero)
-        {
-            throw new NotImplementedException();
-        }
-
-        void IGeneroRepository.AtualizarIdUrl(int id, GeneroDomain genero)
-        {
-            throw new NotImplementedException();
-        }
-
-        GeneroDomain IGeneroRepository.BuscarPorId(int id)
         {
             using (SqlConnection con = new SqlConnection(StringConexao))
             {
-                string queryBuscaPorId = "SELECT FROM Genero WHERE IdGenero = @IdGeneroBuscado";
+                string queryUpdateId = "UPDATE FROM Genero SET Nome = '@Nome' WHERE IdGenero = @IdGenero";
 
-                //Declara o SqlCommand passando a Query que será executada e a conexão com o bd
-                using (SqlCommand cmd = new SqlCommand(queryBuscaPorId, con))
+                con.Open();
+
+                SqlDataReader read;
+
+                using (SqlCommand cmd = new SqlCommand(queryUpdateId, con))
                 {
 
-                    cmd.Parameters.AddWithValue("@IdGeneroBuscado", id);
 
-                    //Abre a Conexão com o banco de todos
-                    con.Open();
+                }
+            }
 
-                    SqlDataReader rdr;
+        }
 
 
-                    //Executar a query (queryInsert)
-                    cmd.ExecuteNonQuery();
-                };
+        //SqlConection
+        //Query
+        //sqlcommand (parametros)
+        // rdr = cmd.ExecuteReader();
+        void IGeneroRepository.AtualizarIdUrl(int id, GeneroDomain genero)
+        {
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                string queryUpdateId = "UPDATE FROM Genero SET Nome = '@Nome' WHERE IdGenero = @IdGenero";
+
+                con.Open();
+
+                SqlDataReader rdr;
+
+                using (SqlCommand cmd = new SqlCommand(queryUpdateId, con))
+                {
+                    rdr =cmd.ExecuteReader();
+                }
+            }
+
+        }
+
+        //Buscar um Genero atraves do seu id
+        GeneroDomain IGeneroRepository.BuscarPorId(int id)
+        {
+            //objeto criado para receber o genero buscado
+
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+
+                string querySelectPorId = "SELECT IdGenero, Nome FROM Genero WHERE IdGenero = @IdGenero";
+
+                //Abre a Conexão com o banco de todos
+                con.Open();
+
+                SqlDataReader rdr;
+
+
+                //Declara o SqlCommand passando a Query que será executada e a conexão com o bd
+                using (SqlCommand cmd = new SqlCommand(querySelectPorId, con))
+                {
+                    cmd.Parameters.AddWithValue("@IdGenero", id);
+
+                    rdr = cmd.ExecuteReader();
+
+
+                    if (rdr.Read())
+                    {
+                        GeneroDomain generoBuscado = new GeneroDomain()
+                        {
+                            IdGenero = Convert.ToInt32(rdr["IdGenero"]),
+
+                            Nome = rdr["Nome"].ToString()
+
+                        };
+
+                        return generoBuscado;
+                    }
+
+                    else
+                    {
+                        return null;
+                    }
+
+                }
             }
 
         }
@@ -69,6 +124,9 @@ namespace webapi.filme.manha.Repositories
                 {
 
                     cmd.Parameters.AddWithValue("@Nome", novoGenero.Nome);
+
+                    //Declara o SqlDataReader para percorrer a tabela do banco de dados
+                    SqlDataReader read;
 
                     //Abre a Conexão com o banco de todos
                     con.Open();
