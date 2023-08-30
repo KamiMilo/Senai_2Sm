@@ -21,42 +21,45 @@ namespace webapi.filme.manha.Repositories
         {
             using (SqlConnection con = new SqlConnection(StringConexao))
             {
-                string queryUpdateId = "UPDATE FROM Genero SET Nome = '@Nome' WHERE IdGenero = @IdGenero";
+                    string queryUpdate = "UPDATE Genero SET Nome = @Nome WHERE IdGenero = @IdGenero";
+                    
+                   //Declara o comando sql passando a query que será executada0 como paramêtro
+                    using (SqlCommand cmd = new SqlCommand(queryUpdate, con))
+                    {
+                      //passa os valores para nos parametros
+                        cmd.Parameters.AddWithValue("@Nome", Genero.Nome);
+                        cmd.Parameters.AddWithValue("@IdGenero", Genero.IdGenero);
 
-                con.Open();
+                        con.Open();
 
-                SqlDataReader read;
-
-                using (SqlCommand cmd = new SqlCommand(queryUpdateId, con))
-                {
-
-
-                }
+                        cmd.ExecuteNonQuery();
+                    }              
             }
-
         }
-
 
         //SqlConection
         //Query
         //sqlcommand (parametros)
         // rdr = cmd.ExecuteReader();
-        void IGeneroRepository.AtualizarIdUrl(int id, GeneroDomain genero)
+        void IGeneroRepository.AtualizarIdUrl(int id, GeneroDomain Genero)
         {
-            using (SqlConnection con = new SqlConnection(StringConexao))
-            {
-                string queryUpdateId = "UPDATE FROM Genero SET Nome = '@Nome' WHERE IdGenero = @IdGenero";
-
-                con.Open();
-
-                SqlDataReader rdr;
-
-                using (SqlCommand cmd = new SqlCommand(queryUpdateId, con))
+                using (SqlConnection con = new SqlConnection(StringConexao))
                 {
-                    rdr =cmd.ExecuteReader();
-                }
-            }
+                //comando da query no banco de dados
+                    string queryUpdateByUrl = "UPDATE Genero SET Nome = @Nome WHERE IdGenero = @IdGenero";
 
+                    using (SqlCommand cmd = new SqlCommand(queryUpdateByUrl, con))
+                    {
+                    cmd.Parameters.AddWithValue("@Nome", Genero.Nome);
+                    cmd.Parameters.AddWithValue("@IdGenero", Genero.IdGenero);
+
+                    con.Open();
+
+                    cmd.ExecuteNonQuery();
+                     }
+
+                }
+            
         }
 
         //Buscar um Genero atraves do seu id

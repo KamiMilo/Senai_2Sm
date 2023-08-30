@@ -1,4 +1,5 @@
-﻿using WebApi.Filmes.Domains;
+﻿using System.Data.SqlClient;
+using WebApi.Filmes.Domains;
 using WebApi.Filmes.Interface;
 
 namespace WebApi.Filmes.Repositories
@@ -34,7 +35,25 @@ namespace WebApi.Filmes.Repositories
 
         public List<FilmeDomain> ListarTodos()
         {
-            throw new NotImplementedException();
+            //criada a lista para os filmes.
+           FilmeDomain<List> ListarFilmes = new List <FilmeDomain>();
+
+            using (SqlConnection connection = new SqlConnection(StringConexao))
+             {
+                //Declaração a instrução a ser executada
+                string querySelectAll = "SELECT Filme.IdFilme , Genero.IdGenero, Filme.Titulo, Genero.Nome FROM Filme INNER JOIN Genero ON Filme.IdGenero =Genero.IdGenero";
+
+                //Ele abre a conexão com o banco de dados
+                connection.Open();
+
+                //Declara o SqlDataReader para percorrer a tabela do banco de dados
+                SqlDataReader rdr;
+
+                using (SqlCommand cmd = connection.CreateCommand(querySelectAll))
+                 {
+                    rdr = cmd.ExecuteReader();
+                }
+            }
         }
     }
 }

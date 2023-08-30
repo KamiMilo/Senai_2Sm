@@ -11,16 +11,44 @@
         </member>
         <member name="M:WebApi.Filmes.Controllers.GeneroController.Get">
             <summary>
-            End point para acionar o método listar todos no repósitorio.
+            Endpoint para acionar o método listar todos no repósitorio.
             </summary>
             <returns>Resposta para o usuario (front-end)</returns>
         </member>
         <member name="M:WebApi.Filmes.Controllers.GeneroController.Post(WebApi.Filmes.Domains.GeneroDomain)">
             <summary>
-            End Point para acionar o método de cadastro.
+            EndPoint para acionar o método de cadastro.
             </summary>
             <param name="novoGenero">objeto recebido na requisição</param>
             <returns>status code 201(Created)</returns>
+        </member>
+        <member name="M:WebApi.Filmes.Controllers.GeneroController.Delete(System.Int32)">
+            <summary>
+            Endpoint que deleta um objeto pelo seu id
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Filmes.Controllers.GeneroController.GetById(System.Int32)">
+            <summary>
+            Endpoint que Busca um Genero atraves do seu id
+            </summary>
+            <param name="Id"></param>
+            <returns>Gênero encontrado</returns>
+        </member>
+        <member name="M:WebApi.Filmes.Controllers.GeneroController.Put(WebApi.Filmes.Domains.GeneroDomain)">
+            <summary>
+            Endpoint que aciona o método de atualizar dados por id no corpo
+            </summary>
+            <param name="Id">Id do Objeto</param>
+            <returns>genero</returns>
+        </member>
+        <member name="M:WebApi.Filmes.Controllers.GeneroController.Patch(System.Int32,WebApi.Filmes.Domains.GeneroDomain)">
+            <summary>
+            Endpoint que aciona o método de atualizar dados pela url
+            </summary>
+            <param name="Id">Id do Objeto</param>
+            <returns>genero</returns>
         </member>
         <member name="T:WebApi.Filmes.Domains.GeneroDomain">
             <summary>

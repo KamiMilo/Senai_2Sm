@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq.Expressions;
 using webapi.filme.manha.Repositories;
 using WebApi.Filmes.Domains;
 using WebApi.Filmes.Interface;
@@ -18,8 +19,8 @@ namespace WebApi.Filmes.Controllers
     [Produces("application/json")]
 
     //Método controlador que herda da controller base onde será criado os End points.
-    public class GeneroController : ControllerBase 
-    { 
+    public class GeneroController : ControllerBase
+    {
 
         /// <summary>
         /// Objeto _generoRepository que ira receber todos os metodos definidos na interface IgeneroRepository
@@ -32,7 +33,7 @@ namespace WebApi.Filmes.Controllers
             _generoRepository = new GeneroRepository();
         }
         /// <summary>
-        /// End point para acionar o método listar todos no repósitorio.
+        /// Endpoint para acionar o método listar todos no repósitorio.
         /// </summary>
         /// <returns>Resposta para o usuario (front-end)</returns>
         [HttpGet]
@@ -40,10 +41,10 @@ namespace WebApi.Filmes.Controllers
         {
             try
             {
-              //cria lista que recebe os dados da requisição 
-            List<GeneroDomain> ListaDeGeneros=_generoRepository.ListarTodos();
-              //Retorna a lista no formato json com o status code Ok(200)
-            return Ok(ListaDeGeneros);
+                //cria lista que recebe os dados da requisição 
+                List<GeneroDomain> ListaDeGeneros = _generoRepository.ListarTodos();
+                //Retorna a lista no formato json com o status code Ok(200)
+                return Ok(ListaDeGeneros);
             }
 
             //Retorna a lista com o status code Bad Request (400) e a mensagem de erro
@@ -54,22 +55,22 @@ namespace WebApi.Filmes.Controllers
         }
 
         /// <summary>
-        /// End Point para acionar o método de cadastro.
+        /// EndPoint para acionar o método de cadastro.
         /// </summary>
         /// <param name="novoGenero">objeto recebido na requisição</param>
         /// <returns>status code 201(Created)</returns>
         [HttpPost]
 
-        public IActionResult Post (GeneroDomain novoGenero)
+        public IActionResult Post(GeneroDomain novoGenero)
         {
 
             try
             {
-            //Fazendo a chamada ara o método atraves do  _generoRepository que acessa o GeneroRepository 
-            _generoRepository.Cadastrar(novoGenero);
+                //Fazendo a chamada ara o método atraves do  _generoRepository que acessa o GeneroRepository 
+                _generoRepository.Cadastrar(novoGenero);
 
-             //Retorna um status Code 201(Created)
-            return StatusCode(201);
+                //Retorna um status Code 201(Created)
+                return StatusCode(201);
 
             }
 
@@ -79,9 +80,14 @@ namespace WebApi.Filmes.Controllers
                 return BadRequest(erro.Message);
             }
         }
+        /// <summary>
+        /// Endpoint que deleta um objeto pelo seu id
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
 
         [HttpDelete("{Id}")]
-        public IActionResult Delete (int Id)
+        public IActionResult Delete(int Id)
         {
             try
             {
@@ -97,8 +103,14 @@ namespace WebApi.Filmes.Controllers
             }
         }
 
+        /// <summary>
+        /// Endpoint que Busca um Genero atraves do seu id
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns>Gênero encontrado</returns>
+
         [HttpGet("{Id}")]
-        public IActionResult GetById (int Id)
+        public IActionResult GetById(int Id)
         {
 
             try
@@ -106,7 +118,7 @@ namespace WebApi.Filmes.Controllers
                 //guardar objeto do método dentro de outro objeto
                 GeneroDomain GeneroBuscado = _generoRepository.BuscarPorId(Id);
 
-                if(GeneroBuscado== null)
+                if (GeneroBuscado == null)
                 {
                     return NotFound("Nenhum Gênero foi encontrado");
                 }
@@ -122,14 +134,60 @@ namespace WebApi.Filmes.Controllers
             }
         }
 
-        [HttpPatch]
-        public IActionResult Patch(GeneroDomain Genero)
+
+        /// <summary>
+        /// Endpoint que aciona o método de atualizar dados por id no corpo
+        /// </summary>
+        /// <param name="Id">Id do Objeto</param>
+        /// <returns>genero</returns>
+        [HttpPut]
+        public IActionResult Put(GeneroDomain Genero)
         {
             try
             {
-                GeneroDomain GeneroAtualizado = _generoRepository.AtualizarIdUrl(Id);
+                GeneroDomain GeneroEncontrado = _generoRepository.AtualizarIdCorpo(Genero.IdGenero);
 
-                return Ok(GeneroAtualizado);
+                if (GeneroEncontrado == null!)
+                {
+                    try
+                    {
+                        _generoRepository.AtualizarIdCorpo(Genero,Id);
+                        return StatusCode(201);
+
+                    }
+
+                    catch (Exception erro)
+                    {
+                        return BadRequest(erro.Message);
+                    }
+
+                }
+
+                return BadRequest("Gênero não encontrado");
+             }
+
+                catch (Exception erro)
+            {
+
+                return BadRequest(erro.Message);
+            }
+
+        }
+
+        /// <summary>
+        /// Endpoint que aciona o método de atualizar dados pela url
+        /// </summary>
+        /// <param name="Id">Id do Objeto</param>
+        /// <returns>genero</returns>
+
+        [HttpPatch("{id}")]
+        public IActionResult Patch(int id, GeneroDomain Genero)
+        {
+            try
+            {
+                _generoRepository.AtualizarIdUrl(id, Genero);
+
+                return Ok(204);
             }
 
             catch (Exception erro)
@@ -137,7 +195,7 @@ namespace WebApi.Filmes.Controllers
                 return BadRequest(erro.Message);
             }
         }
-
-
     }
 }
+
+
