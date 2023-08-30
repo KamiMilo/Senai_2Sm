@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\47766876825\\Desktop\\Senai_2Sm\\API\\Projeto_Filmes\\WebApi.Filmes\\WebApi.Filmes\\WebApi.Filmes.csproj": {}
+    "C:\\Users\\kamil\\OneDrive\\Área de Trabalho\\Senai_2Sm\\API\\Projeto_Filmes\\WebApi.Filmes\\WebApi.Filmes\\WebApi.Filmes.csproj": {}
   },
   "projects": {
-    "C:\\Users\\47766876825\\Desktop\\Senai_2Sm\\API\\Projeto_Filmes\\WebApi.Filmes\\WebApi.Filmes\\WebApi.Filmes.csproj": {
+    "C:\\Users\\kamil\\OneDrive\\Área de Trabalho\\Senai_2Sm\\API\\Projeto_Filmes\\WebApi.Filmes\\WebApi.Filmes\\WebApi.Filmes.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\47766876825\\Desktop\\Senai_2Sm\\API\\Projeto_Filmes\\WebApi.Filmes\\WebApi.Filmes\\WebApi.Filmes.csproj",
+        "projectUniqueName": "C:\\Users\\kamil\\OneDrive\\Área de Trabalho\\Senai_2Sm\\API\\Projeto_Filmes\\WebApi.Filmes\\WebApi.Filmes\\WebApi.Filmes.csproj",
         "projectName": "WebApi.Filmes",
-        "projectPath": "C:\\Users\\47766876825\\Desktop\\Senai_2Sm\\API\\Projeto_Filmes\\WebApi.Filmes\\WebApi.Filmes\\WebApi.Filmes.csproj",
-        "packagesPath": "C:\\Users\\47766876825\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\47766876825\\Desktop\\Senai_2Sm\\API\\Projeto_Filmes\\WebApi.Filmes\\WebApi.Filmes\\obj\\",
+        "projectPath": "C:\\Users\\kamil\\OneDrive\\Área de Trabalho\\Senai_2Sm\\API\\Projeto_Filmes\\WebApi.Filmes\\WebApi.Filmes\\WebApi.Filmes.csproj",
+        "packagesPath": "C:\\Users\\kamil\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kamil\\OneDrive\\Área de Trabalho\\Senai_2Sm\\API\\Projeto_Filmes\\WebApi.Filmes\\WebApi.Filmes\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\47766876825\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kamil\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,7 +40,15 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[5.1.1, )"
+            },
             "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            },
+            "Swashbuckle.AspNetCore.Swagger": {
               "target": "Package",
               "version": "[6.5.0, )"
             },
@@ -68,7 +76,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
