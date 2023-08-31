@@ -4,6 +4,26 @@
         <name>WebApi.Filmes</name>
     </assembly>
     <members>
+        <member name="M:WebApi.Filmes.Controllers.FilmeController.Get">
+            <summary>
+            End point que aciona o método listar do Répositorio de filme.
+            </summary>
+            <returns>Resposta para o usuario (front-end)</returns>
+        </member>
+        <member name="M:WebApi.Filmes.Controllers.FilmeController.Post(WebApi.Filmes.Domains.FilmeDomain)">
+            <summary>
+            End point que aciona o método de cadastro.
+            </summary>
+            <param name="Novofilme"></param>
+            <returns>Status Code</returns>
+        </member>
+        <member name="M:WebApi.Filmes.Controllers.FilmeController.Delete(System.Int32)">
+            <summary>
+            End point que aciona o método deletar no repositório
+            </summary>
+            <param name="id"></param>
+            <returns>Status Code</returns>
+        </member>
         <member name="P:WebApi.Filmes.Controllers.GeneroController._generoRepository">
             <summary>
             Objeto _generoRepository que ira receber todos os metodos definidos na interface IgeneroRepository
@@ -142,6 +162,12 @@
             </summary>
             <param name="Id">Objeto do Id a ser buscado</param>
             <returns>Objeto Buscado</returns>
+        </member>
+        <member name="M:WebApi.Filmes.Repositories.WebApi.Filmes.Repositories.FilmeRepository.Cadastrar(WebApi.Filmes.Domains.FilmeDomain)">
+            <summary>
+            Cadastra um novo filme (objeto) com as informações inseridas
+            </summary>
+            <param name="novoFilme">Filme a ser cadastrado</param>
         </member>
         <member name="F:webapi.filme.manha.Repositories.GeneroRepository.StringConexao">
             <summary>

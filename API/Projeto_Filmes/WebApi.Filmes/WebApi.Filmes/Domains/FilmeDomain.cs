@@ -7,10 +7,12 @@ namespace WebApi.Filmes.Domains
         public int IdFilme { get; set; }
 
         public int IdGenero { get; set; }
-        public GeneroDomain Genero { get; set; }
+
 
        [Required(ErrorMessage = "O titulo do filme dever Obrigatorio!")] 
         public string Titulo { get; set; }
+
+        public GeneroDomain Genero { get; set; }
 
     }
 }

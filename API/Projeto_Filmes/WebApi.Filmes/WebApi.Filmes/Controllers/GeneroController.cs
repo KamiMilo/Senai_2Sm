@@ -10,7 +10,7 @@ namespace WebApi.Filmes.Controllers
 {
     //Define que a rota de uma resquisição será no seguinte formato:
     //Dominio/Api/Nomedocontroller
-    //ex  http://Localhost:/api/genero
+    //ex  http://Localhost:5167/api/genero
 
     //Define que é um controlador de Api
     [Route("api/[controller]")]
@@ -141,17 +141,17 @@ namespace WebApi.Filmes.Controllers
         /// <param name="Id">Id do Objeto</param>
         /// <returns>genero</returns>
         [HttpPut]
-        public IActionResult Put(GeneroDomain Genero)
+        public IActionResult Put(GeneroDomain Genero )
         {
             try
             {
-                GeneroDomain GeneroEncontrado = _generoRepository.AtualizarIdCorpo(Genero.IdGenero);
+                GeneroDomain GeneroEncontrado = _generoRepository.BuscarPorId(Genero.IdGenero);
 
                 if (GeneroEncontrado == null!)
                 {
                     try
                     {
-                        _generoRepository.AtualizarIdCorpo(Genero,Id);
+                        _generoRepository.AtualizarIdCorpo(Genero);
                         return StatusCode(201);
 
                     }
