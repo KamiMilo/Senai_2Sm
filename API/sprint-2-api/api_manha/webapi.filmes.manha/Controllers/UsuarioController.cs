@@ -74,18 +74,13 @@ namespace webapi.filmes.manha.Controllers
 
                      //Credenciais do token
                      signingCredentials: creds
-                    ):
+                    );
 
 
-                    
-                
-
-
-
-                 return Ok(new
-                 {
-                     token = new JwtSecurityTokeHandler().WriteToken(token)
-                 });
+                return Ok(new
+                {
+                    token = new JwtSecurityTokenHandler().WriteToken(token)
+                });
 
             }
 
