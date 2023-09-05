@@ -1,161 +1,168 @@
 ﻿using System.Data.SqlClient;
+using webapi.FIlmes.Domains;
+using webapi.FIlmes.Interfaces;
 using WebApi.Filmes.Domains;
 using WebApi.Filmes.Interface;
 
-namespace WebApi.Filmes.Repositories
+namespace webapi.FIlmes.Repositories
 {
-    namespace WebApi.Filmes.Repositories
+    public class FilmeRepository : IFilmeRepository
     {
-        public class FilmeRepository : IFilmeRepository
+
+        public string stringConexao = "Data Source = NOTE07-S14; Initial Catalog = Filmes; User Id = sa; Pwd = Senai@134";
+        public void AtualizarIdCorpo(FilmeDomain filme)
         {
-
-            public string StringConexao = "Data Source = NOTE07-S14; Initial Catalog = Filmes; User Id = sa; Pwd = Senai@134";
-            public void AtualizarIdCorpo(FilmeDomain filme)
+            using (SqlConnection con = new SqlConnection(stringConexao))
             {
-                throw new NotImplementedException();
-            }
+                string querySearchById = "SELECT IdFilme, IdGenero, Titulo FROM Filme WHERE IdFilme = @IdFilme";
+                string queryUpdateById = "UPDATE Filme SET IdFilme = @IdFilme, Titulo = @Titulo WHERE IdGenero = @IdGenero";
 
-            public void AtualizarIdUrl(int Id, FilmeDomain filme)
-            {
-                throw new NotImplementedException();
-            }
-
-            public GeneroDomain BuscarPorId(int Id)
-            {
-                using (SqlConnection con = new SqlConnection(StringConexao))
+                using (SqlCommand cmdSearch = new SqlCommand(querySearchById, con))
                 {
-                    string querySelectPorId = "SELECT Filme.IdFilme,Filme.Titulo FROM Filme WHERE IdFilme = @IdFilmeBuscado";
+                    cmdSearch.Parameters.AddWithValue("@IdFilme", filme.IdFilme);
 
                     con.Open();
 
-                    SqlDataReader rdr;
-
-                    //Declara o SqlCommand passando a Query que será executada e a conexão com o bd
-                    using (SqlCommand cmd = new SqlCommand(querySelectPorId, con))
+                    using (SqlDataReader rdr = cmdSearch.ExecuteReader())
                     {
-                        cmd.Parameters.AddWithValue("@IdFilmeBuscado", Id);
-
-
-                        rdr = cmd.ExecuteReader();
-
-
                         if (rdr.Read())
                         {
-                            FilmeDomain filmeBuscado = new FilmeDomain()
+
+                            rdr.Close(); // fecha o rdr antes de executar a alteracao de dados
+
+                            using (SqlCommand cmdUpdate = new SqlCommand(queryUpdateById, con))
                             {
-                                IdFilme = Convert.ToInt32(rdr["IdFilme"]),
+                                cmdUpdate.Parameters.AddWithValue("@IdGenero", filme.IdGenero);
+                                cmdUpdate.Parameters.AddWithValue("@Titulo", filme.Titulo);
 
-                                Titulo = rdr["Titulo"].ToString()
-
-                            };
-
-                            return filmeBuscado;
+                                cmdUpdate.ExecuteNonQuery();
+                            }
                         }
-
-                        else
-                        {
-                            return null;
-                        }
-
                     }
                 }
 
             }
-            
-            /// <summary>
-            /// Cadastra um novo filme (objeto) com as informações inseridas
-            /// </summary>
-            /// <param name="novoFilme">Filme a ser cadastrado</param>
+        }
 
-            public void Cadastrar(FilmeDomain NovoFilme)
+        public void AtualizarIdUrl(int id, FilmeDomain filme)
+        {
+            using (SqlConnection con = new SqlConnection(stringConexao))
             {
-                using (SqlConnection con = new SqlConnection(StringConexao))
+                string queryUpdateByUrl = "UPDATE Filme SET IdFilme = @IdFilme, Titulo = @Titulo WHERE IdGenero = @IdGenero";
+
+                using (SqlCommand cmd = new SqlCommand(queryUpdateByUrl, con))
                 {
-                    string queryInsert = "INSERT INTO Filme(IdGenero,Titulo) VALUES(@IdGenero,@Titulo)";
-
-                     con.Open();
-
-                    using (SqlCommand cmd = new SqlCommand(queryInsert,con))
-                    {
-
-                        cmd.Parameters.AddWithValue("IdGenero", NovoFilme.IdGenero);
-
-                        cmd.Parameters.AddWithValue("Titulo", NovoFilme.Titulo);
-
-
-                        cmd.ExecuteNonQuery();
-                    }
-
-                }
-            }
-
-            public void Deletar(int Id)
-            {
-                using (SqlConnection con = new SqlConnection(StringConexao))
-                {
-                    string queryDelete = "DELETE FROM Filme WHERE Idfilme = @IdFilmebuscado";
+                    cmd.Parameters.AddWithValue("@IdFilme", id);
+                    cmd.Parameters.AddWithValue("@Titulo", filme.Titulo);
+                    cmd.Parameters.AddWithValue("@IdGenero", filme.IdGenero);
 
                     con.Open();
 
-                    using (SqlCommand cmd = new SqlCommand(queryDelete,con))
-                    {
-                        cmd.Parameters.AddWithValue("@IdFilmebuscado", Id);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
 
-                        cmd.ExecuteNonQuery();
+        public FilmeDomain BuscarPorId(int id)
+        {
+            FilmeDomain filmeBuscado = new FilmeDomain();
+
+            using (SqlConnection con = new SqlConnection(stringConexao))
+            {
+                string queryGetById = "SELECT IdFilme, IdGenero, Titulo FROM Filme WHERE IdFilme = @IdFilme";
+
+                using (SqlCommand cmd = new SqlCommand(queryGetById, con))
+                {
+                    cmd.Parameters.AddWithValue("@IdFilme", id);
+
+                    con.Open();
+
+                    SqlDataReader rdr;
+
+                    rdr = cmd.ExecuteReader();
+
+                    if (rdr.Read())
+                    {
+                        filmeBuscado = new FilmeDomain
+                        {
+                            IdFilme = Convert.ToInt32(rdr["IdFilme"]),
+                            IdGenero = Convert.ToInt32(rdr["IdGenero"]),
+                            Titulo = rdr["Titulo"].ToString()
+                        };
                     }
                 }
             }
 
-            public List<FilmeDomain> ListarTodos()
+            return filmeBuscado;
+        }
+
+        public void Cadastrar(FilmeDomain novoFilme)
+        {
+            using (SqlConnection con = new SqlConnection(stringConexao))
             {
-                //criada a lista para os filmes.
-                List<FilmeDomain> ListarFilmes = new List<FilmeDomain>();
+                string queryInsert = "INSERT INTO Filme (IdGenero, Titulo) VALUES (@IdGenero, @Titulo)";
 
-                using (SqlConnection connection = new SqlConnection(StringConexao))
+                using (SqlCommand cmd = new SqlCommand(queryInsert, con))
                 {
-                    //Declaração a instrução a ser executada
-                    string querySelectAll = "SELECT Filme.IdFilme , Genero.IdGenero, Filme.Titulo, Genero.Nome FROM Filme INNER JOIN Genero ON Filme.IdGenero =Genero.IdGenero";
+                    cmd.Parameters.AddWithValue("@IdGenero", novoFilme.IdGenero);
+                    cmd.Parameters.AddWithValue("@Titulo", novoFilme.Titulo);
 
-                    //abre a conexão com o banco.
-                    connection.Open();
-                    //comando para percorrer e ler o banco.
+                    con.Open();
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void Deletar(int id)
+        {
+            using (SqlConnection con = new SqlConnection(stringConexao))
+            {
+                string queryDelete = "DELETE Filme WHERE IdFilme = @IdFilme";
+
+                using (SqlCommand cmd = new SqlCommand(queryDelete, con))
+                {
+                    cmd.Parameters.AddWithValue("@IdFilme", id);
+
+                    con.Open();
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public List<FilmeDomain> ListarTodos()
+        {
+            List<FilmeDomain> listaFilmes = new List<FilmeDomain>();
+
+            using (SqlConnection con = new SqlConnection(stringConexao))
+            {
+                string querySelectAll = "SELECT IdFilme, IdGenero, Titulo FROM Filme";
+
+                con.Open();
+
+                using (SqlCommand cmd = new SqlCommand(querySelectAll, con))
+                {
                     SqlDataReader rdr;
 
-                    using (SqlCommand cmd = new SqlCommand(querySelectAll, connection))
+                    rdr = cmd.ExecuteReader();
+
+                    while (rdr.Read())
                     {
-                        //Executa o comando´para percorrer e ler o banco.
-                        rdr = cmd.ExecuteReader();
-
-                        //condição para enquanto o comando de leitura for executado ele vai atribuir cada um e guardar em um objeto.
-                        while (rdr.Read())
+                        FilmeDomain filme = new FilmeDomain()
                         {
+                            IdFilme = Convert.ToInt32(rdr["IdFilme"]),
 
-                            FilmeDomain filme = new FilmeDomain()
-                            {
-                                IdFilme = Convert.ToInt32(rdr["IdFilme"]),
+                            IdGenero = Convert.ToInt32(rdr["IdGenero"]),
 
-                                IdGenero = Convert.ToInt32(rdr["IdGenero"]),
+                            Titulo = rdr["Titulo"].ToString()
+                        };
 
-                                Titulo = rdr["Titulo"].ToString(),
-
-                                Genero = new GeneroDomain()
-                                {
-                                    IdGenero = Convert.ToInt32(rdr["IdGenero"]),
-
-                                    Nome = rdr["Nome"].ToString()
-                                }
-
-
-                            };
-                            //adiciona o objeto a lista 
-                            ListarFilmes.Add(filme);
-
-                        }
-
+                        listaFilmes.Add(filme);
                     }
-
-                    return ListarFilmes;
                 }
+
+                return listaFilmes;
             }
         }
     }
