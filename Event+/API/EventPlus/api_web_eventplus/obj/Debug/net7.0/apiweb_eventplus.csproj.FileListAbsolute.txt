@@ -43,3 +43,13 @@ C:\Users\47766876825\Desktop\EventPlus\api_web_eventplus\bin\Debug\net7.0\Mono.T
 C:\Users\47766876825\Desktop\EventPlus\api_web_eventplus\bin\Debug\net7.0\Newtonsoft.Json.dll
 C:\Users\47766876825\Desktop\EventPlus\api_web_eventplus\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll
 C:\Users\47766876825\Desktop\EventPlus\api_web_eventplus\bin\Debug\net7.0\System.CodeDom.dll
+C:\Users\kamil\OneDrive\Área de Trabalho\Senai_2Sm\Event+\API\EventPlus\api_web_eventplus\obj\Debug\net7.0\apiweb_eventplus.csproj.AssemblyReference.cache
+C:\Users\kamil\OneDrive\Área de Trabalho\Senai_2Sm\Event+\API\EventPlus\api_web_eventplus\obj\Debug\net7.0\apiweb_eventplus.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kamil\OneDrive\Área de Trabalho\Senai_2Sm\Event+\API\EventPlus\api_web_eventplus\obj\Debug\net7.0\apiweb_eventplus.AssemblyInfoInputs.cache
+C:\Users\kamil\OneDrive\Área de Trabalho\Senai_2Sm\Event+\API\EventPlus\api_web_eventplus\obj\Debug\net7.0\apiweb_eventplus.AssemblyInfo.cs
+C:\Users\kamil\OneDrive\Área de Trabalho\Senai_2Sm\Event+\API\EventPlus\api_web_eventplus\obj\Debug\net7.0\apiweb_eventplus.csproj.CoreCompileInputs.cache
+C:\Users\kamil\OneDrive\Área de Trabalho\Senai_2Sm\Event+\API\EventPlus\api_web_eventplus\obj\Debug\net7.0\apiweb_eventplus.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\kamil\OneDrive\Área de Trabalho\Senai_2Sm\Event+\API\EventPlus\api_web_eventplus\obj\Debug\net7.0\apiweb_eventplus.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\kamil\OneDrive\Área de Trabalho\Senai_2Sm\Event+\API\EventPlus\api_web_eventplus\obj\Debug\net7.0\apiweb_eventplus.dll
+C:\Users\kamil\OneDrive\Área de Trabalho\Senai_2Sm\Event+\API\EventPlus\api_web_eventplus\obj\Debug\net7.0\refint\apiweb_eventplus.dll
+C:\Users\kamil\OneDrive\Área de Trabalho\Senai_2Sm\Event+\API\EventPlus\api_web_eventplus\obj\Debug\net7.0\apiweb_eventplus.pdb

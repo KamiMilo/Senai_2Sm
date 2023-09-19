@@ -24,7 +24,5 @@ namespace apiweb_eventplus.Domains
         [Required(ErrorMessage = "Nome da Instituição Obrigatório")]
         public string? NomeFantasia { get; set; }
 
-
-
     }
 }
