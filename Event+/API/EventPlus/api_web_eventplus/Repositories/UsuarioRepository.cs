@@ -13,13 +13,18 @@ namespace apiweb_eventplus.Repositories
         {
             _eventContext = new EventContext();
         }
+
         public Usuario BuscarPorEmail(string email, string senha)
         {
             try
             {
+                //expressão lambida que traz o primeiro email que for encontrado que seja igual ao da variavel
+                //(u(variavel de busca) =>(vai para) u.Email (tabela Email) == (que for igual ao) email  )
+
                 Usuario usuarioBuscado = _eventContext.Usuario.FirstOrDefault(u => u.Email == email)!;
                 if (usuarioBuscado != null)
                 {
+                    //Confere a senha
                     bool confere = Criptografia.CompararHash(senha, usuarioBuscado.Senha!);
 
                     if (confere)

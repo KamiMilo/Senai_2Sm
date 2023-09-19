@@ -15,11 +15,11 @@ namespace apiweb_eventplus.Controllers
 
         public UsuarioController()
        {
-            _usuarioRepository = new UsuarioRepository
+            _usuarioRepository = new UsuarioRepository();
        }
 
+        //********CADASTRAR******************
         [HttpGet]
-
         public IActionResult Post(Usuario usuario)
         {
             try

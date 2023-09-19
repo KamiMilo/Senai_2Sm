@@ -1,11 +1,17 @@
-﻿using apiweb_eventplus.Domains;
+﻿using apiweb_eventplus.Contexts;
+using apiweb_eventplus.Domains;
 using apiweb_eventplus.Interfaces;
 
 namespace apiweb_eventplus.Repositories
 {
     public class TiposUsuarioRepository : ITiposUsuarioRepository
     {
-       
+        private readonly EventContext _eventContext;
+        public TiposUsuarioRepository()
+        {
+            _eventContext = new EventContext();
+        }
+
         public void Atualizar(Guid id, TiposUsuario tipoUsuario)
         {
             throw new NotImplementedException();
@@ -18,7 +24,9 @@ namespace apiweb_eventplus.Repositories
 
         public void Cadastrar(TiposUsuario tipoUsuario)
         {
-            throw new NotImplementedException();
+            _eventContext.TiposUsuario.Add(tipoUsuario);
+
+            _eventContext.SaveChanges();
         }
 
         public void Deletar(Guid id)

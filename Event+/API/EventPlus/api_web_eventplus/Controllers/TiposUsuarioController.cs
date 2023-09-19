@@ -17,6 +17,8 @@ namespace apiweb_eventplus.Controllers
         {
             _tiposUsuarioRepository = new TiposUsuarioRepository();
         }
+        //********CADASTRAR**************
+
         [HttpPost]
         public IActionResult Post(TiposUsuario tiposusuario)
         {
