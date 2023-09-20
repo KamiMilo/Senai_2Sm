@@ -18,41 +18,31 @@ namespace apiweb_eventplus.Repositories
         {
             try
             {
-                //expressão lambida que traz o primeiro email que for encontrado que seja igual ao da variavel
-                //(u(variavel de busca) =>(vai para) u.Email (tabela Email) == (que for igual ao) email  )
-
-                Usuario usuarioBuscado = _eventContext.Usuario.Select(u => new Usuario
-                {
-                    IdUsuario = u.IdUsuario,
-                    Nome = u.Nome,
-                    Email = u.Email,
-                    Senha = u.Senha,
-                    TiposUsuario = new TiposUsuario
+                Usuario usuarioBuscado = _eventContext.Usuario
+                    .Select(u => new Usuario
                     {
-                        IdTipoUsuario = u.IdTipoUsuario,
-                        Titulo = u.TiposUsuario!.Titulo
-                    }
-                }).FirstOrDefault(u => u.Email == email)!;
-
+                        IdUsuario = u.IdUsuario,
+                        Nome = u.Nome,
+                        Email = u.Email,
+                        Senha = u.Senha,
+                        TiposUsuario = new TiposUsuario
+                        {
+                            IdTipoUsuario = u.IdTipoUsuario,
+                            Titulo = u.TiposUsuario!.Titulo
+                        }
+                    }).FirstOrDefault(u => u.Email == email)!;
 
                 if (usuarioBuscado != null)
                 {
-                    bool confere = Criptografia.CompararHash(senha, usuarioBuscado.Senha);
+                    bool confere = Criptografia.CompararHash(senha, usuarioBuscado.Senha!);
 
-                     if (confere != usuarioBuscado)
+                    if (confere)
                     {
-                       
                         return usuarioBuscado;
-
                     }
-
                 }
-
-                return null;
-
+                return null!;
             }
-            
-
             catch (Exception)
             {
                 throw;
@@ -106,7 +96,11 @@ namespace apiweb_eventplus.Repositories
 
         public void Deletar(Guid id)
         {
-            throw new NotImplementedException();
+           Usuario ususarioBuscado = _eventContext.Usuario.Find(id)!;
+
+            _eventContext.Usuario.Remove(ususarioBuscado);
+
+            _eventContext.SaveChanges();
         }
     }
 }

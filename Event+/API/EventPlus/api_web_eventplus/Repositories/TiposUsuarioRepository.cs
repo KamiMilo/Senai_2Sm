@@ -14,7 +14,18 @@ namespace apiweb_eventplus.Repositories
 
         public void Atualizar(Guid id, TiposUsuario tipoUsuario)
         {
-           _eventContext usuarioBuscado = 
+            TiposUsuario usuarioBuscado = _eventContext.TiposUsuario.Find(id)!;
+
+            if (usuarioBuscado != null)
+            {
+                usuarioBuscado.IdTipoUsuario = id;
+            }
+
+            _eventContext.TiposUsuario.Update(usuarioBuscado);
+
+
+            _eventContext.SaveChanges();
+
         }
 
         public TiposUsuario BuscarPorId(Guid id)
