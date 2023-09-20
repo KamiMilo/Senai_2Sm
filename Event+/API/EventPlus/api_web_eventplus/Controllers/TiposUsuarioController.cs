@@ -20,16 +20,34 @@ namespace apiweb_eventplus.Controllers
         //********CADASTRAR**************
 
         [HttpPost]
-        public IActionResult Post(TiposUsuario tiposusuario)
+        public IActionResult Post(TiposUsuario tiposUsuario)
         {
             try
             {
-                _tiposUsuarioRepository.Cadastrar(tiposusuario);
+                _tiposUsuarioRepository.Cadastrar(tiposUsuario);
                 return StatusCode(201);
             }
             catch (Exception e)
             {
                 return BadRequest(e.Message);
+            }
+        }
+        //*********Listar*******************
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+            try
+            {
+               return Ok( _tiposUsuarioRepository.Listar());
+
+                
+            }
+
+            catch (Exception e)
+            {
+               return BadRequest(e.Message);
+
             }
         }
     }

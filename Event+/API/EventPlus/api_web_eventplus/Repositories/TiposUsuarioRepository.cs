@@ -14,12 +14,12 @@ namespace apiweb_eventplus.Repositories
 
         public void Atualizar(Guid id, TiposUsuario tipoUsuario)
         {
-            throw new NotImplementedException();
+           _eventContext usuarioBuscado = 
         }
 
         public TiposUsuario BuscarPorId(Guid id)
         {
-            throw new NotImplementedException();
+            return _eventContext.TiposUsuario.FirstOrDefault(u => u.IdTipoUsuario == id)!;
         }
 
         public void Cadastrar(TiposUsuario tipoUsuario)
@@ -29,14 +29,28 @@ namespace apiweb_eventplus.Repositories
             _eventContext.SaveChanges();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
         public void Deletar(Guid id)
         {
-            throw new NotImplementedException();
-        }
+           TiposUsuario tipoBuscado = _eventContext.TiposUsuario.Find(id)!;
 
-        public List<TiposUsuario> Listar(Guid id)
+            _eventContext.TiposUsuario.Remove(tipoBuscado);
+
+            _eventContext.SaveChanges();
+
+
+        }
+        /// <summary>
+        /// Método para listar os tipos de Usuario
+        /// </summary>
+        /// <returns>Lista</returns>
+
+        public List<TiposUsuario> Listar()
         {
-            throw new NotImplementedException();
+            return _eventContext.TiposUsuario.ToList();
         }
     }
 }

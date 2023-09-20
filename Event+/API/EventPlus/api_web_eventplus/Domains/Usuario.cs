@@ -35,7 +35,7 @@ namespace apiweb_eventplus.Domains
         [Required(ErrorMessage = "Informe o Tipo de Usúario")]
         public Guid IdTipoUsuario { get; set; }
 
-        [ForeignKey(nameof(TiposUsuario))]
+        [ForeignKey(nameof(IdTipoUsuario))]
         public TiposUsuario? TiposUsuario { get; set; }
     }
 }

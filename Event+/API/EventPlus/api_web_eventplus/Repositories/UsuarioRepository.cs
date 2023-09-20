@@ -21,19 +21,38 @@ namespace apiweb_eventplus.Repositories
                 //expressão lambida que traz o primeiro email que for encontrado que seja igual ao da variavel
                 //(u(variavel de busca) =>(vai para) u.Email (tabela Email) == (que for igual ao) email  )
 
-                Usuario usuarioBuscado = _eventContext.Usuario.FirstOrDefault(u => u.Email == email)!;
+                Usuario usuarioBuscado = _eventContext.Usuario.Select(u => new Usuario
+                {
+                    IdUsuario = u.IdUsuario,
+                    Nome = u.Nome,
+                    Email = u.Email,
+                    Senha = u.Senha,
+                    TiposUsuario = new TiposUsuario
+                    {
+                        IdTipoUsuario = u.IdTipoUsuario,
+                        Titulo = u.TiposUsuario!.Titulo
+                    }
+                }).FirstOrDefault(u => u.Email == email)!;
+
+
                 if (usuarioBuscado != null)
                 {
-                    //Confere a senha
-                    bool confere = Criptografia.CompararHash(senha, usuarioBuscado.Senha!);
+                    bool confere = Criptografia.CompararHash(senha, usuarioBuscado.Senha);
 
-                    if (confere)
+                     if (confere != usuarioBuscado)
                     {
+                       
                         return usuarioBuscado;
+
                     }
+
                 }
-                return null!;
+
+                return null;
+
             }
+            
+
             catch (Exception)
             {
                 throw;
@@ -49,6 +68,8 @@ namespace apiweb_eventplus.Repositories
                     {
                         IdUsuario = u.IdUsuario,
                         Nome = u.Nome,
+                        Email = u.Email,
+                        Senha= u.Senha,
                         TiposUsuario = new TiposUsuario
                         {
                             IdTipoUsuario = u.IdTipoUsuario,

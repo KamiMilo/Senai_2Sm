@@ -19,7 +19,7 @@ namespace apiweb_eventplus.Controllers
        }
 
         //********CADASTRAR******************
-        [HttpGet]
+        [HttpPost]
         public IActionResult Post(Usuario usuario)
         {
             try

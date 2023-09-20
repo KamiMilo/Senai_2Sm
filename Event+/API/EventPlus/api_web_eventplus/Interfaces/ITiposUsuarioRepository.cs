@@ -8,7 +8,7 @@ namespace apiweb_eventplus.Interfaces
 
         void Deletar(Guid id);
 
-        List<TiposUsuario> Listar(Guid id);
+        List<TiposUsuario> Listar();
 
         TiposUsuario BuscarPorId(Guid id);
 

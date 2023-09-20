@@ -15,9 +15,9 @@ namespace apiweb_eventplus.Domains
 
         //ref.tabela Usuairo = FK
         [Required(ErrorMessage = "Usuario obrigatorio!")]
-        public Guid IdUsuairo { get; set; }
+        public Guid IdUsuario { get; set; }
 
-        [ForeignKey(nameof(IdUsuairo))]
+        [ForeignKey(nameof(IdUsuario))]
         public Usuario? Usuario { get; set; }
 
         //ref.tabela Evento = FK

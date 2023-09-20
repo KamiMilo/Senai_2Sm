@@ -8,6 +8,7 @@ namespace apiweb_eventplus.Domains
     [Index(nameof(CNPJ),IsUnique= true)]
     public class Instituicao
     {
+        [Key]
         public Guid IdInstituicao { get; set; }
 
         [Column(TypeName = "CHAR(14)")]
