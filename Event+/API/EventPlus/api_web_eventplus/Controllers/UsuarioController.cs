@@ -18,6 +18,11 @@ namespace apiweb_eventplus.Controllers
             _usuarioRepository = new UsuarioRepository();
        }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <returns>StatusCode</returns>
         //********CADASTRAR******************
         [HttpPost]
         public IActionResult Post(Usuario usuario)

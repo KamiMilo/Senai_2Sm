@@ -3339,19 +3339,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\kamil\\.nuget\\packages\\": {}
+    "C:\\Users\\47766876825\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kamil\\OneDrive\\Área de Trabalho\\Senai_2Sm\\Event+\\API\\EventPlus\\api_web_eventplus\\apiweb_eventplus.csproj",
+      "projectUniqueName": "C:\\Users\\47766876825\\Desktop\\Senai_2Sm\\Event+\\API\\EventPlus\\api_web_eventplus\\apiweb_eventplus.csproj",
       "projectName": "apiweb_eventplus",
-      "projectPath": "C:\\Users\\kamil\\OneDrive\\Área de Trabalho\\Senai_2Sm\\Event+\\API\\EventPlus\\api_web_eventplus\\apiweb_eventplus.csproj",
-      "packagesPath": "C:\\Users\\kamil\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kamil\\OneDrive\\Área de Trabalho\\Senai_2Sm\\Event+\\API\\EventPlus\\api_web_eventplus\\obj\\",
+      "projectPath": "C:\\Users\\47766876825\\Desktop\\Senai_2Sm\\Event+\\API\\EventPlus\\api_web_eventplus\\apiweb_eventplus.csproj",
+      "packagesPath": "C:\\Users\\47766876825\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\47766876825\\Desktop\\Senai_2Sm\\Event+\\API\\EventPlus\\api_web_eventplus\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\kamil\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\47766876825\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3437,7 +3437,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

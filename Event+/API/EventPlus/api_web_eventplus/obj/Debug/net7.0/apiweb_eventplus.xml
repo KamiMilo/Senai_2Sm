@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>apiweb_eventplus</name>
+    </assembly>
+    <members>
+        <member name="M:apiweb_eventplus.Controllers.LoginController.Post(apiweb_eventplus.ViewModels2.LoginViewModels)">
+            <summary>
+            End Point de Login.
+            </summary>
+            <param name="usuario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:apiweb_eventplus.Controllers.TiposEventoController.Post(apiweb_eventplus.Domains.TiposEvento)">
+            <summary>
+            End Point que aciona o método de Cadastrar
+            </summary>
+            <param name="novoTipoDeEvento"></param>
+            <returns>Status Code</returns>
+        </member>
+        <member name="M:apiweb_eventplus.Controllers.TiposEventoController.Get">
+            <summary>
+            End Point que aciona o Método de Listar
+            </summary>
+            <returns>Lista de Tipos de Evento</returns>
+        </member>
+        <member name="M:apiweb_eventplus.Controllers.TiposEventoController.Delete(System.Guid)">
+            <summary>
+            End Point que aciona o método de Deletar.
+            </summary>
+            <param name="id"></param>
+            <returns>NoContent</returns>
+        </member>
+        <member name="M:apiweb_eventplus.Controllers.TiposEventoController.GetBuscarPorId(System.Guid)">
+            <summary>
+            End Point que aciona o método Buscar por Id
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:apiweb_eventplus.Controllers.TiposEventoController.Put(apiweb_eventplus.Domains.TiposEvento,System.Guid)">
+            <summary>
+            End Point que aciona o Método de Atualizar
+            </summary>
+            <param name="id"></param>
+            <param name="Tipoevento"></param>
+            <returns></returns>
+        </member>
+        <member name="M:apiweb_eventplus.Controllers.TiposUsuarioController.Post(apiweb_eventplus.Domains.TiposUsuario)">
+            <summary>
+            End Point para cadastrar um novo tipo de usuario.
+            </summary>
+            <param name="tiposUsuario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:apiweb_eventplus.Controllers.TiposUsuarioController.Get">
+            <summary>
+            End Point que lista os Tipos de Usuario cadastrados
+            </summary>
+            <returns>Lista</returns>
+        </member>
+        <member name="M:apiweb_eventplus.Controllers.UsuarioController.Post(apiweb_eventplus.Domains.Usuario)">
+            <summary>
+            
+            </summary>
+            <param name="usuario"></param>
+            <returns>StatusCode</returns>
+        </member>
+        <member name="T:apiweb_eventplus.Migrations.BD">
+            <inheritdoc />
+        </member>
+        <member name="M:apiweb_eventplus.Migrations.BD.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:apiweb_eventplus.Migrations.BD.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:apiweb_eventplus.Migrations.BD.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

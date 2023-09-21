@@ -135,3 +135,5 @@ C:\Users\47766876825\Desktop\Senai_2Sm\Event+\API\EventPlus\api_web_eventplus\ob
 C:\Users\47766876825\Desktop\Senai_2Sm\Event+\API\EventPlus\api_web_eventplus\obj\Debug\net7.0\apiweb_eventplus.pdb
 C:\Users\47766876825\Desktop\Senai_2Sm\Event+\API\EventPlus\api_web_eventplus\obj\Debug\net7.0\apiweb_eventplus.genruntimeconfig.cache
 C:\Users\47766876825\Desktop\Senai_2Sm\Event+\API\EventPlus\api_web_eventplus\obj\Debug\net7.0\ref\apiweb_eventplus.dll
+C:\Users\47766876825\Desktop\Senai_2Sm\Event+\API\EventPlus\api_web_eventplus\bin\Debug\net7.0\apiweb_eventplus.xml
+C:\Users\47766876825\Desktop\Senai_2Sm\Event+\API\EventPlus\api_web_eventplus\obj\Debug\net7.0\apiweb_eventplus.xml

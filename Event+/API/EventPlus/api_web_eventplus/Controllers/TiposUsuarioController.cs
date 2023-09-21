@@ -17,6 +17,12 @@ namespace apiweb_eventplus.Controllers
         {
             _tiposUsuarioRepository = new TiposUsuarioRepository();
         }
+
+        /// <summary>
+        /// End Point para cadastrar um novo tipo de usuario.
+        /// </summary>
+        /// <param name="tiposUsuario"></param>
+        /// <returns></returns>
         //********CADASTRAR**************
 
         [HttpPost]
@@ -32,6 +38,10 @@ namespace apiweb_eventplus.Controllers
                 return BadRequest(e.Message);
             }
         }
+        /// <summary>
+        /// End Point que lista os Tipos de Usuario cadastrados
+        /// </summary>
+        /// <returns>Lista</returns>
         //*********Listar*******************
 
         [HttpGet]
@@ -50,5 +60,7 @@ namespace apiweb_eventplus.Controllers
 
             }
         }
+
+       
     }
 }

@@ -39,11 +39,8 @@ namespace apiweb_eventplus.Repositories
 
             _eventContext.SaveChanges();
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
+     
+     
         public void Deletar(Guid id)
         {
            TiposUsuario tipoBuscado = _eventContext.TiposUsuario.Find(id)!;
@@ -54,10 +51,7 @@ namespace apiweb_eventplus.Repositories
 
 
         }
-        /// <summary>
-        /// Método para listar os tipos de Usuario
-        /// </summary>
-        /// <returns>Lista</returns>
+
 
         public List<TiposUsuario> Listar()
         {

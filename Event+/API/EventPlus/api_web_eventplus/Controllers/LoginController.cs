@@ -23,6 +23,11 @@ namespace apiweb_eventplus.Controllers
         {
             _usuarioRepository = new UsuarioRepository();
         }
+        /// <summary>
+        /// End Point de Login.
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <returns></returns>
 
         [HttpPost]
         public IActionResult Post(LoginViewModels usuario)
@@ -51,8 +56,8 @@ namespace apiweb_eventplus.Controllers
                 var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
                 var token = new JwtSecurityToken(
-                        issuer: "webapi.event+.manha",
-                        audience: "webapi.event+.manha",
+                        issuer: "webapi.eventplus",
+                        audience: "webapi.eventplus",
                         claims: claims,
                         expires: DateTime.Now.AddMinutes(5),
                         signingCredentials: creds
