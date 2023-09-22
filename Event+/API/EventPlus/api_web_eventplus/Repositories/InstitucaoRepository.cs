@@ -29,7 +29,7 @@ namespace apiweb_eventplus.Repositories
 
         }
 
-        public List<IInstituicaoRepository> Listar()
+        public List<Instituicao> Listar()
         {
             return _ctx.Instituicao.ToList();
         }

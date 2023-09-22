@@ -6,7 +6,7 @@ namespace apiweb_eventplus.Interfaces
     {
         void cadastrar(Instituicao novaInstituicao);
 
-        List<IInstituicaoRepository> Listar();
+        List<Instituicao> Listar();
 
         void Deletar(Guid id);
     }

@@ -2,7 +2,7 @@
 
 namespace apiweb_eventplus.Interfaces
 {
-    public interface IPresencasEvento
+    public interface IPresencasEventoRepository
     {
 
         void Cadastrar(PresencasEvento presenca);
@@ -11,7 +11,7 @@ namespace apiweb_eventplus.Interfaces
         void Deletar(Guid id);
 
 
-        void Atualizar(PresencasEvento Evento,Guid id);
+        void Atualizar(PresencasEvento confirmacao,Guid id);
 
         List<PresencasEvento>ListarMinhas(Guid id);
     }
