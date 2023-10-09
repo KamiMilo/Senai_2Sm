@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- <body onload="alert('Página carregada com sucesso!');"> -->
+<body >
+    <h1>Introdução ao Javascript</h1>
+    <input id="nome" type="text" placeholder="Digite seu nome!" >
+
+   <button onclick="alert('bom dia pessoal') ">Bom dia!!</button>
+    <button onclick="saudacao() ">saudar!!</button>
+
+    <script>
+        function saudacao(){
+
+           var nomeVar = document.getElementById('nome').value;
+           //com Concatenação:
+           //  alert('Bom dia ' + nomeVar )
+
+         //interpolação : Template String.
+        // se usa crase e o cifrão vai na frente da variavel.
+           alert(`Bom dia ${nomeVar}!`);
+
+        //   alert(`Bom dia ${nomeVar + 50-2 }!`);
+
+
+            // console.log(nome.placeholder)
+            //  console.log(nome.value)
+        }
+    </script>   
+
+<!-- Eventos html : são ações feitas pelo usuário. 
+
+identificar erro:  crtl + shift + i  ou F12
+
+métodos no Javascript : camelCase
+
+ método : é usado em uma classe e para um objeto especifico
+ e função: é generico e pode ser usada para qualquer obj -->
+
+</body>
+</html>

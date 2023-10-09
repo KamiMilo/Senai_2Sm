@@ -35,6 +35,8 @@ namespace apiweb_eventplus.Repositories
 
         public void Cadastrar(Evento novoEvento)
         {
+            Evento.Evento = Guid.NewGuid();
+            
             _ctx.Evento.Add(novoEvento);
 
             _ctx.SaveChanges();
