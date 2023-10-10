@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- criar um formulario para receber o nome do usúario 
+substituir por um nickname
+ao clicar no notão do nickname deve ser exibido na tela -->
+<body>
+    <form onsubmit="TrocarNick()">
+
+        <label for="nome">Nome</label>
+        <input placeholder="Digite seu Nome" type="text" id="nome">
+
+        <label  for="nickname" > Nick</label>
+        <input placeholder= "Digite o NickName" type="text"  id="nickname">
+
+        <br><br>
+
+        <button>Exibir Nickname</button>
+
+        <p> Nick : <span id="Nickname"></span></p>
+
+
+    </form>
+
+    <script>
+        event.preventDefault()
+
+        function TrocarNick()
+        {
+
+        let nome= document.getElementsById("nome").value;
+        let Nickname = document.getElementsById("nickname").value;
+        
+        document.getElementById("Nickname").innerHTML = nome.replace(nome, `Olá ${nickname}`)
+
+        }
+    </script>
+    
+</body>
+</html>
