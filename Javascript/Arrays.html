@@ -8,10 +8,61 @@
 </head>
 <body>
     <script>
-        let frutas = ["Banana","maça", "morango"];
+        //array ,ja com inserção de dados
+        let frutas = ['Banana','maça', 'morango'];
 
         console.log(frutas);
-        console.log(`quantidade de frutas :${frutas}`);
+        console.log(`Quantidade de frutas: ${frutas.length}`);
+
+        //comando para adicionar dado no array
+        frutas.push('mamão');
+        frutas.push('amora');
+
+        frutas.sort();//ordena os valores do array
+
+        console.log();
+        console.log();
+
+        console.log(frutas[0]);//BANANA
+        console.log(frutas[2]);// MAMãO
+        console.log(frutas[4]);// MORANGO
+        console.log(frutas[6]);// UNDEFINED
+
+        // for (let index = 0; index < frutas.length; index++){
+        //     console.log(`frutas ${index + 1}) ${frutas[index]}`)
+        // };
+
+        //foreach com função anonima : 
+        //função Crow Beak : chama a função que devolve valor e indice no array 
+       frutas.forEach(function (fruta, i) {
+        
+        console.log(`frutas ${i + 1} ${fruta}`);
+
+       })
+
+       let pratileira = ['Vinho', 'Água', 'Suco']
+
+       let garcom = pratileira[1];
+
+       switch (garcom) {
+        case 'Vinho':
+            console.log('temos o seu Vinho!!'); 
+
+            break;
+            case 'Água':
+            console.log('temos a sua Água!!');
+            
+            break;
+            case 'Suco':
+            console.log('temos o seu Suco!!');
+            
+            break;
+       
+        default:
+            break;
+       }
+
+
 
     </script>
     
