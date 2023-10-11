@@ -6,40 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<!-- criar um formulario para receber o nome do usúario 
-substituir por um nickname
-ao clicar no notão do nickname deve ser exibido na tela -->
 <body>
-    <form onsubmit="TrocarNick()">
 
+    <form action="" method="get" onsubmit="exibir(); ">
         <label for="nome">Nome</label>
-        <input placeholder="Digite seu Nome" type="text" id="nome">
+        <input placeholder="Digite um nome" type="text" id="nome">
+        
+        <br> <br>
 
-        <label  for="nickname" > Nick</label>
-        <input placeholder= "Digite o NickName" type="text"  id="nickname">
+        <label for="nick">NickName</label>
+        <input placeholder="Digite um nickName" type="text" id="nick">
+        <br></br>
 
-        <br><br>
-
-        <button>Exibir Nickname</button>
-
-        <p> Nick : <span id="Nickname"></span></p>
-
-
+        <button onclick="exibir()">Exibir</button>
     </form>
 
+    <p id="Nick"></p>
+
     <script>
-        event.preventDefault()
-
-        function TrocarNick()
-        {
-
-        let nome= document.getElementsById("nome").value;
-        let Nickname = document.getElementsById("nickname").value;
-        
-        document.getElementById("Nickname").innerHTML = nome.replace(nome, `Olá ${nickname}`)
-
+        function exibir() {
+            event.preventDefault()
+            let nome = document.getElementById('nome').value
+            let nick = document.getElementById('nick').value
+            
+            document.getElementById('Nick').innerHTML = nome.replace(nome, `Ola ${nick}`)
         }
     </script>
-    
 </body>
 </html>
