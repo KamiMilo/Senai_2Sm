@@ -8,6 +8,15 @@
 </head>
 <body>
     <form onsubmit="cadastrar(event)">
+
+        <label for="nome">Nome</label>
+        <input type="text" placeholder="digite seu nome" id="nome">
+        <br>
+
+        <label for="email">email</label>
+        <input type="email" placeholder="digite o seu email" id="email">
+        <br>
+
         <label for="Cep">CEP</label>
         <!-- onBlur = após sair do campo ele busca. -->
         <input type="number" onblur="buscarEndereco(this.value)" placeholder="digite o seu cep" id="Cep">
@@ -16,6 +25,10 @@
 
         <label for="Endereco">Endereço</label>
         <input type="text" placeholder="digite o seu Endereço" id="Endereco">
+        <br>
+
+        <label for="numero">Número</label>
+        <input type="number" placeholder="digite o número" id="numero">
         <br>
 
         <label for="Cidade">Cidade</label>

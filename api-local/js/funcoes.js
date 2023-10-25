@@ -1,20 +1,62 @@
 
-const UrlViaCep = "https://viacep.com.br/ws"
+const UrlViaCep = "https://viacep.com.br/ws";
+const UrlCepProfessor ="http://172.16.35.155:3000/myceps";
+
 function cadastrar(e) {
     e.preventDefault();
-    alert("cadastrar...");
-
+   
+    const Nome= document.getElementById('nome').value;
+    const Email= document.getElementById('email').value;
+    const Cep= float.parse(document.getElementById('Cep').value);
+    const Endereco= document.getElementById('Endereco').value;
+    const Numero= document.getElementById('numero').value;
+    const Cidade= document.getElementById('Cidade').value;
+    const Estado= document.getElementById('Cep').value;
 }
+//fazer a validaçao (dica - crie uma função que retorna um bool)
+
+function validaForm() {
+    if (Nome == undefined  
+    || email == undefined || cep < 8 
+    || Endereco == undefined || Numero < 3 
+    || Cidade == undefined  ||Estado == undefined ) {
+        
+        alert('Preencha o formúlario')
+        return;false
+    }
+
+    return true;
+    
+}
+
+
+function escolheCep() {
+    switch (key) {
+        case value:
+            
+            break;
+    
+        default:
+            break;
+    }
+}
+
 async function buscarEndereco(Cep) {
     //complemento do Endereço  da api
+
     const resource = `/${Cep}/json/`
 
-    console.log(UrlViaCep + resource);
+    console.log(UrlCepProfessor + resource);
     try {
-        const promise = await fetch(UrlViaCep + resource)
+
+        // const promise = await fetch(UrlViaCep + resource)
+        const promise = await fetch(`${UrlCepProfessor}/${Cep}`)
+
         //transforma o json retornando em um objeto ou array
         const endereco = await promise.json();
         console.log(endereco);
+        return;
+        
 
         document.getElementById("not-found").innerText = "";
 
